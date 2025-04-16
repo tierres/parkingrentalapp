@@ -31,3 +31,21 @@ coverage/
 jest.config.js
 cypress/
 cypress.json
+
+# macOS (sugestão GPT)
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Pastas de arquivos temporários do Finder (sugestão GPT)
+**/__MACOSX
+
+# Thumbnails do Finder (sugestão GPT)
+._*
+
+# Arquivos de metadados de rede (sugestão GPT)
+.Spotlight-V100
+.Trashes
+
+# Arquivo de cache da Apple (sugestão GPT)
+.DDocumentRevisions-V100

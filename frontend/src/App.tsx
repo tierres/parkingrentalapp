@@ -1,14 +1,14 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Dashboard from './pages/Dashboard/Dashboard'
+import Home from './pages/Home/Home'
+
 export const App = () => {
   return (
-    <div>
-      <div className='container bg-red-950 mx-auto'>
-        <h1>Hello TailwindCss v4</h1>
-      </div>
-      <div>
-        <h2 className='container bg-amber-800'>
-          Second Tittle
-        </h2>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
