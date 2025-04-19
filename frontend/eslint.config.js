@@ -1,26 +1,29 @@
 import js from '@eslint/js';
 import globals from 'globals';
+import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import react from 'eslint-plugin-react'; // ✅ import do plugin react
 import tseslint from 'typescript-eslint';
 
-export default tseslint.config(
-  { ignores: ['dist'] },
+export default [
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended,  'plugin:react/recommended'],
+    ignores: ['dist'],
+  },
+  {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
-    },
-    settings: {
-      react: {
-        version: 'detect',
+      parser: tseslint.parser,
+      parserOptions: {
+        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
     },
     plugins: {
-      react, // ✅ adiciona o plugin react
+      react,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
     },
@@ -38,5 +41,10 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
     },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
   },
-);
+];
